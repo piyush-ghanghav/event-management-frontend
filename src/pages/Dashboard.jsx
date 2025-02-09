@@ -178,41 +178,69 @@ const Dashboard = () => {
         );
     }
 
+    // Add isAuthenticated check
+    const isAuthenticated = !!token;
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
-            {/* Header with Stats */}
-            <div className="bg-white shadow-md">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                    <div className="flex flex-col space-y-4">
-                        <div className="flex justify-between items-center">
-                            <h2 className="text-3xl font-bold text-gray-900">Welcome to Your Dashboard</h2>
-                            <Link
-                                to="/event/new"
-                                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg hover:opacity-90 transition duration-200"
-                            >
-                                <Plus className="w-5 h-5 mr-2" />
-                                Create New Event
-                            </Link>
-                        </div>
+            {/* Header with Stats - Only show for authenticated users */}
+            {isAuthenticated ? (
+                <div className="bg-white shadow-md">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                        <div className="flex flex-col space-y-4">
+                            <div className="flex justify-between items-center">
+                                <h2 className="text-3xl font-bold text-gray-900">Welcome to Your Dashboard</h2>
+                                <Link
+                                    to="/event/new"
+                                    className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg hover:opacity-90 transition duration-200"
+                                >
+                                    <Plus className="w-5 h-5 mr-2" />
+                                    Create New Event
+                                </Link>
+                            </div>
 
-                        {/* Stats Cards */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="bg-purple-100 p-4 rounded-lg">
-                                <h3 className="font-semibold text-purple-700">Events Hosting</h3>
-                                <p className="text-2xl font-bold text-purple-900">{userStats.hosting}</p>
-                            </div>
-                            <div className="bg-blue-100 p-4 rounded-lg">
-                                <h3 className="font-semibold text-blue-700">Events Attending</h3>
-                                <p className="text-2xl font-bold text-blue-900">{userStats.attending}</p>
-                            </div>
-                            <div className="bg-green-100 p-4 rounded-lg">
-                                <h3 className="font-semibold text-green-700">Upcoming Events</h3>
-                                <p className="text-2xl font-bold text-green-900">{userStats.upcoming}</p>
+                            {/* Stats Cards */}
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="bg-purple-100 p-4 rounded-lg">
+                                    <h3 className="font-semibold text-purple-700">Events Hosting</h3>
+                                    <p className="text-2xl font-bold text-purple-900">{userStats.hosting}</p>
+                                </div>
+                                <div className="bg-blue-100 p-4 rounded-lg">
+                                    <h3 className="font-semibold text-blue-700">Events Attending</h3>
+                                    <p className="text-2xl font-bold text-blue-900">{userStats.attending}</p>
+                                </div>
+                                <div className="bg-green-100 p-4 rounded-lg">
+                                    <h3 className="font-semibold text-green-700">Upcoming Events</h3>
+                                    <p className="text-2xl font-bold text-purple-900">{userStats.upcoming}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            ) : (
+                // Guest header
+                <div className="bg-white shadow-md">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-3xl font-bold text-gray-900">Event Browser</h2>
+                            <div className="flex gap-4">
+                                <Link
+                                    to="/login"
+                                    className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-600 font-medium rounded-lg hover:bg-purple-200 transition duration-200"
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    to="/register"
+                                    className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-medium rounded-lg hover:opacity-90 transition duration-200"
+                                >
+                                    Register
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Search and Filters */}
             <div className="bg-white shadow-sm">
