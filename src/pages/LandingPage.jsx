@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
+	
   const navigate = useNavigate();
 
   return (
@@ -11,15 +12,14 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-blue-900/90">
-        
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Create Unforgettable Events
             </h1>
             <p className="text-xl text-purple-100 mb-8">
-              Your all-in-one platform for planning, managing, and hosting successful events
+              Your all-in-one platform for planning, managing, and hosting
+              successful events
             </p>
             <div className="flex flex-wrap gap-4">
               <button

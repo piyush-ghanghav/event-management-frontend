@@ -222,7 +222,7 @@ const Dashboard = () => {
                 <div className="bg-white shadow-md">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                         <div className="flex justify-between items-center">
-                            <h2 className="text-3xl font-bold text-gray-900">Event Browser</h2>
+                            <h2 className="text-3xl font-bold text-gray-900">Event Dashboard</h2>
                             <div className="flex gap-4">
                                 <Link
                                     to="/login"

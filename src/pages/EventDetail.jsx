@@ -53,6 +53,7 @@ const EventDetail = () => {
                 setEvent(eventRes.data);
                 
                 setCreator(eventRes.data.owner);
+                console.log('Creator',eventRes.data.owner.username);
 
                 setFormData({
                     name: eventRes.data.name,
